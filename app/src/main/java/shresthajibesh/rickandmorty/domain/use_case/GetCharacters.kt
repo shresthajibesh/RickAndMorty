@@ -11,7 +11,7 @@ import shresthajibesh.rickandmorty.domain.repository.RickAndMortyRepository
 import javax.inject.Inject
 
 class GetCharacters @Inject constructor(private val repo: RickAndMortyRepository) {
-    suspend operator fun invoke(id: Int): Flow<Async<List<Character>>> = flow {
+    suspend operator fun invoke(): Flow<Async<List<Character>>> = flow {
         emit(Loading<List<Character>>())
         try {
             emit(Success(repo.getCharacters()))

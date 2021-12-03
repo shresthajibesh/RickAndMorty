@@ -2,6 +2,7 @@ package shresthajibesh.rickandmorty.injection
 
 import com.google.gson.GsonBuilder
 import dagger.Module
+import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
@@ -12,11 +13,14 @@ import shresthajibesh.rickandmorty.BuildConfig
 import shresthajibesh.rickandmorty.data.remote.RickAndMortyApi
 import shresthajibesh.rickandmorty.data.repository.RickAndMortyRepositoryImpl
 import shresthajibesh.rickandmorty.domain.repository.RickAndMortyRepository
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
+    @Provides
+    @Singleton
     fun provideClient(): OkHttpClient {
         return OkHttpClient
             .Builder()
@@ -26,6 +30,8 @@ object AppModule {
             .build()
     }
 
+    @Provides
+    @Singleton
     fun provideApi(okHttpClient: OkHttpClient): RickAndMortyApi {
         return Retrofit
             .Builder()
@@ -40,6 +46,8 @@ object AppModule {
             .create(RickAndMortyApi::class.java)
     }
 
+    @Provides
+    @Singleton
     fun provideRickAndMortyRepository(api: RickAndMortyApi): RickAndMortyRepository {
         return RickAndMortyRepositoryImpl(api)
     }

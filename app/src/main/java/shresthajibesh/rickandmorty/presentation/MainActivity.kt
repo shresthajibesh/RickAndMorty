@@ -3,6 +3,7 @@ package shresthajibesh.rickandmorty.presentation
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -13,6 +14,7 @@ import shresthajibesh.rickandmorty.presentation.ui.theme.RickAndMortyTheme
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    private val viewModel:DummyViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -23,7 +25,11 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+
+        viewModel
     }
+
+
 }
 
 @Composable

@@ -12,26 +12,26 @@ import shresthajibesh.rickandmorty.data.remote.models.LocationsDTO
 interface RickAndMortyApi {
 
     @GET("character/")
-    fun getCharacters(): CharactersDTO
+    suspend fun getCharacters(): CharactersDTO
 
     @GET("character/{id}")
-    fun getCharacterDetails(
+    suspend fun getCharacterDetails(
         @Path("id") id: Int
     ): CharacterDTO
 
     @GET("location/")
-    fun getLocations(): LocationsDTO
+    suspend fun getLocations(): LocationsDTO
 
     @GET("location/{id}")
-    fun getLocationDetails(
+    suspend fun getLocationDetails(
         @Path("id") id: Int
     ): LocationDTO
 
     @GET("episode/")
-    fun getEpisodes(): EpisodesDTO
+    suspend fun getEpisodes(): EpisodesDTO
 
     @GET("episode/{id}")
-    fun getEpisodeDetails(
+    suspend fun getEpisodeDetails(
         @Path("id") id: Int
     ): EpisodeDTO
 
