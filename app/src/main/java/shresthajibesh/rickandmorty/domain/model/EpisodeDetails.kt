@@ -1,3 +1,10 @@
 package shresthajibesh.rickandmorty.domain.model
 
-data class EpisodeDetails(val id:Int)
+data class EpisodeDetails(
+    val id: Int,
+    val name: String,
+    val airDate: String,
+    val characters: List<String>,
+    val created: String,
+    val episodeCode: String
+)
