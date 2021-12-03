@@ -12,11 +12,11 @@ import javax.inject.Inject
 
 class GetLocations @Inject constructor(private val repo: RickAndMortyRepository) {
     suspend operator fun invoke(id: Int): Flow<Async<List<Location>>> = flow {
-        emit(Loading())
+        emit(Loading<List<Location>>())
         try {
             emit(Success(repo.getLocations()))
         } catch (throwable: Throwable) {
-            emit(Failure(throwable))
+            emit(Failure<List<Location>>(throwable))
         }
     }
 }

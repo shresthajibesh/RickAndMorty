@@ -1,4 +1,4 @@
-package shresthajibesh.rickandmorty.ui.theme
+package shresthajibesh.rickandmorty.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

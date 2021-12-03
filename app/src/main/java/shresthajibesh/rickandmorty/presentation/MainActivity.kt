@@ -1,4 +1,4 @@
-package shresthajibesh.rickandmorty
+package shresthajibesh.rickandmorty.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -8,8 +8,10 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import shresthajibesh.rickandmorty.ui.theme.RickAndMortyTheme
+import dagger.hilt.android.AndroidEntryPoint
+import shresthajibesh.rickandmorty.presentation.ui.theme.RickAndMortyTheme
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

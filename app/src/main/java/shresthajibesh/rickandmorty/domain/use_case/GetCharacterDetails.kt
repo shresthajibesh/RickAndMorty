@@ -12,11 +12,11 @@ import javax.inject.Inject
 
 class GetCharacterDetails @Inject constructor(private val repo: RickAndMortyRepository) {
     suspend operator fun invoke(id: Int): Flow<Async<CharacterDetails>> = flow {
-        emit(Loading())
+        emit(Loading<CharacterDetails>())
         try {
             emit(Success(repo.getCharacterDetails(id)))
         } catch (throwable: Throwable) {
-            emit(Failure(throwable))
+            emit(Failure<CharacterDetails>(throwable))
         }
     }
 }
